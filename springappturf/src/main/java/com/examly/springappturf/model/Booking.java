@@ -19,6 +19,7 @@ public class Booking {
     private LocalTime startTime;
     private LocalTime endTime;
     private LocalDateTime bookingCreatedAt;
+    @Enumerated(EnumType.STRING)
     private BookingStatus status;
     @ManyToOne
     @JoinColumn(name="userId")
