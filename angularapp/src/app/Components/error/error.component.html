@@ -1,0 +1,7 @@
+<div class="text-center">
+  <h1>Error {{ errorCode }}</h1>
+  <p *ngIf="errorCode === '404'">Page not found</p>
+  <p *ngIf="errorCode === '500'">Internal server error</p>
+  <p *ngIf="errorCode !== '404' && errorCode !== '500'">Something went wrong</p>
+  <a routerLink="/">Go to Home</a>
+</div>
