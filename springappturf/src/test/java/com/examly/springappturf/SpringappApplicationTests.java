@@ -1,4 +1,4 @@
-package com.examly.springapp;
+package com.examly.springappturf;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
