@@ -9,11 +9,11 @@ import java.util.List;
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 
-    List<Feedback> findByUserId(Long userId);
+    List<Feedback> findByUserUserId(Long userId);
 
-    List<Feedback> findByTurfId(Long turfId);
+    List<Feedback> findByTurfTurfId(int turfId);
 
-    List<Feedback> findByUserIdAndTurfId(Long userId, Long turfId);
+    List<Feedback> findByUserUserIdAndTurfTurfId(Long userId, int turfId);
 
     List<Feedback> findByRatingGreaterThanEqual(int rating);
 }

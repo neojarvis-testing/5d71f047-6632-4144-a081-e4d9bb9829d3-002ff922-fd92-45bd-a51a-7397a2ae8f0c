@@ -9,8 +9,22 @@ import { Router } from '@angular/router';
 })
 export class UsernavComponent {
   constructor(private router: Router) {}
+  logoutConfirmation: boolean = false;
+
   logout() {
-    localStorage.clear(); // or remove only token if preferred
+    localStorage.clear();
+    this.logoutConfirmation = true; // or remove only token if preferred
     window.location.href = '/login'; // or use Angular router: this.router.navigate(['/login']);
   }
+  confirmLogout() {
+  localStorage.clear();
+  this.router.navigate(['/login']);
 }
+
+  cancelLogout() {
+  this.logoutConfirmation = false;
+}
+}
+
+
+

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/feedbacks")
+@RequestMapping("/api/feedbacks")
 public class FeedbackController {
     @Autowired
     private FeedbackService feedbackService;
@@ -55,13 +55,13 @@ public class FeedbackController {
 
     @GetMapping("/turf/{turfId}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<Feedback>> getFeedbacksByTurf(@PathVariable Long turfId) {
+    public ResponseEntity<List<Feedback>> getFeedbacksByTurf(@PathVariable int turfId) {
         return ResponseEntity.ok(feedbackService.getFeedbacksByTurfId(turfId));
     }
 
     @GetMapping("/user/{userId}/turf/{turfId}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<List<Feedback>> getFeedbacksByUserAndTurf(@PathVariable Long userId, @PathVariable Long turfId) {
+    public ResponseEntity<List<Feedback>> getFeedbacksByUserAndTurf(@PathVariable Long userId, @PathVariable int turfId) {
         return ResponseEntity.ok(feedbackService.getFeedbacksByUserIdAndTurfId(userId, turfId));
     }
 

@@ -1,1 +1,15 @@
-<p>userviewturf works!</p>
+<div class="turf-container">
+  <h2>Available Turfs</h2>
+  <div *ngIf="turfs.length === 0" class="no-data">No records found</div>
+
+  <div class="turf-card" *ngFor="let turf of turfs">
+    <img [src]="'assets/images/' + turf.photo" alt="Turf Image" />
+    <div class="details">
+      <h3>{{ turf.name }}</h3>
+      <p><strong>Location:</strong> {{ turf.location }}</p>
+      <p><strong>Price/hour:</strong> ₹{{ turf.pricePerHour }}</p>
+      <p>{{ turf.description }}</p>
+      <button (click)="bookTurf(turf.turfId)">Book Now</button>
+    </div>
+  </div>
+</div>

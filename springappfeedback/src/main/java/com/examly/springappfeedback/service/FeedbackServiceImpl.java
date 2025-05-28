@@ -44,17 +44,17 @@ public class FeedbackServiceImpl implements FeedbackService {
 
     @Override
     public List<Feedback> getFeedbacksByUserId(int userId) {
-        return feedbackRepository.findByUserId((long) userId);
+        return feedbackRepository.findByUserUserId((long) userId);
     }
 
     @Override
-    public List<Feedback> getFeedbacksByTurfId(Long turfId) {
-        return feedbackRepository.findByTurfId(turfId);
+    public List<Feedback> getFeedbacksByTurfId(int turfId) {
+        return feedbackRepository.findByTurfTurfId(turfId);
     }
 
     @Override
-    public List<Feedback> getFeedbacksByUserIdAndTurfId(Long userId, Long turfId) {
-        return feedbackRepository.findByUserIdAndTurfId(userId, turfId);
+    public List<Feedback> getFeedbacksByUserIdAndTurfId(Long userId, int turfId) {
+        return feedbackRepository.findByUserUserIdAndTurfTurfId(userId, turfId);
     }
 
     @Override

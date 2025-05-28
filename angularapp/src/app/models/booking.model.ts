@@ -7,5 +7,9 @@ export interface Booking {
     status: string;
     userId: number;
     turfId: number;
+    turfName: string;
+    userName: string;
+    email: string;
+    mobileNumber: string;
   }
   

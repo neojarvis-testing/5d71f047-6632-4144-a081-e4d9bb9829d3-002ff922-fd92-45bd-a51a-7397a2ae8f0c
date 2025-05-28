@@ -17,8 +17,8 @@ export class TurfService {
     });
   }
 
-  addTurf(formData: FormData): Observable<Turf> {
-    return this.http.post<Turf>(`${this.apiUrl}/api/turf`, formData, { headers: this.getAuthHeaders() });
+  addTurf(turf: Turf): Observable<Turf> {
+    return this.http.post<Turf>(`${this.apiUrl}/api/turf`, turf, { headers: this.getAuthHeaders() });
   }
 
   getAllTurfs(): Observable<Turf[]> {

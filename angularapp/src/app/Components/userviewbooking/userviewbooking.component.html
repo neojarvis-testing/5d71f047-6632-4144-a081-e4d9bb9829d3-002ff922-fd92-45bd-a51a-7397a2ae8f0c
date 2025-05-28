@@ -1,1 +1,43 @@
-<p>userviewbooking works!</p>
+<div class="booking-container">
+  <h2>My Bookings</h2>
+
+  <div *ngIf="bookings.length === 0" class="no-records">
+    Oops! No records Found
+  </div>
+
+  <table *ngIf="bookings.length > 0" class="booking-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Turf Name</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>End Time</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ booking.turfName }}</td>
+        <td>{{ booking.bookingForDate }}</td>
+        <td>{{ booking.startTime }}</td>
+        <td>{{ booking.endTime }}</td>
+        <td>{{ booking.status }}</td>
+        <td>
+          <button (click)="confirmDelete(booking.bookingId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" *ngIf="showConfirmModal">
+    <div class="modal-content">
+      <p>Are you sure you want to delete this booking?</p>
+      <button (click)="deleteBooking()">Yes, Delete</button>
+      <button (click)="cancelDelete()">Cancel</button>
+    </div>
+  </div>
+</div>

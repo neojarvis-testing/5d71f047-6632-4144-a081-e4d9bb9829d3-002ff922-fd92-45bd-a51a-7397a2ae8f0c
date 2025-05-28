@@ -18,7 +18,7 @@ export class RegistrationComponent {
     userRole: ''
   };
   
-
+ message: string = '';
   confirmPassword: string = '';
   showModal: boolean = false;
 
@@ -47,7 +47,8 @@ export class RegistrationComponent {
 
     this.authService.register(this.user).subscribe({
       next: () => {
-        this.showModal = true; // Show modal
+        this.message = 'Registration successful!';
+        this.router.navigate(['/login']); // Show modal
       },
       error: (err) => {
         alert('Registration failed: ' + (err.error?.message || 'Server error'));

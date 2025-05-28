@@ -1,1 +1,55 @@
-<p>adminaddturf works!</p>
+<div class="form-container">
+  <h2>Add Turf</h2>
+  <form [formGroup]="turfForm" (ngSubmit)="submit()" novalidate>
+    <div class="form-group">
+      <label for="name">Turf Name*</label>
+      <input id="name" formControlName="name" type="text" />
+      <div class="error" *ngIf="turfForm.get('name')?.touched && turfForm.get('name')?.invalid">
+        Turf Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location*</label>
+      <input id="location" formControlName="location" type="text" />
+      <div class="error" *ngIf="turfForm.get('location')?.touched && turfForm.get('location')?.invalid">
+        Location is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pricePerHour">Price per hour*</label>
+      <input id="pricePerHour" formControlName="pricePerHour" type="number" />
+      <div class="error" *ngIf="turfForm.get('pricePerHour')?.touched && turfForm.get('pricePerHour')?.invalid">
+        <div *ngIf="turfForm.get('pricePerHour')?.errors?.['required']">Price is required.</div>
+        <div *ngIf="turfForm.get('pricePerHour')?.errors?.['pattern']">Price must be a valid number.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description*</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div class="error" *ngIf="turfForm.get('description')?.touched && turfForm.get('description')?.invalid">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="turfImage">Upload Turf Image*</label>
+      <input id="turfImage" type="file" (change)="onFileChange($event)" />
+      <div class="error" *ngIf="turfForm.get('turfImage')?.touched && turfForm.get('turfImage')?.invalid">
+        Turf image is required.
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <p>Successfully Added</p>
+    <button (click)="closeModal()">Ok</button>
+  </div>
+</div>

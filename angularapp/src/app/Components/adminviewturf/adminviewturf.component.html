@@ -1,1 +1,41 @@
-<p>adminviewturf works!</p>
+<div class="view-container">
+  <h2>All Turfs</h2>
+  <input
+    type="text"
+    placeholder="Search by name or description"
+    [(ngModel)]="searchTerm"
+    (input)="searchTurfs()"
+  />
+  <input type="number" formControlName="minPrice" placeholder="Min Price" />
+    <input type="number" formControlName="maxPrice" placeholder="Max Price" />
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Turf Name</th>
+        <th>Location</th>
+        <th>Price</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let turf of filteredTurfs">
+        <td>{{ turf.turfId }}</td>
+        <td>{{ turf.name }}</td>
+        <td>{{ turf.location }}</td>
+        <td>{{ turf.pricePerHour }}</td>
+        <td>{{ turf.description }}</td>
+        <td>
+          <img *ngIf="turf.photo" [src]="turf.photo" alt="Turf" width="80" />
+        </td>
+        <td>
+          <button (click)="editTurf(turf.turfId)">Edit</button>
+          <button (click)="deleteTurf(turf.turfId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

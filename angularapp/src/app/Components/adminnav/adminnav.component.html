@@ -1,11 +1,16 @@
 <nav class="navbar">
-  <div class="navbar-brand">admin / ADMIN</div>
-  <ul class="navbar-links">
+  <div class="nav-left">Admin / ADMIN</div>
+  <ul class="nav-menu">
     <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/adminviewturf">Turf</a></li>
+    <li class="dropdown">
+      <a href="#">Turf</a>
+      <ul class="dropdown-menu">
+        <li><a routerLink="/adminaddturf">Add Turf</a></li>
+        <li><a routerLink="/adminviewturf">View Turf</a></li>
+      </ul>
+    </li>
     <li><a routerLink="/adminviewbooking">Booking Details</a></li>
     <li><a routerLink="/adminviewfeedback">Feedbacks</a></li>
-    <li><a routerLink="/bookingchart">Booking Chart</a></li>
     <li><a (click)="logout()">Logout</a></li>
   </ul>
 </nav>
