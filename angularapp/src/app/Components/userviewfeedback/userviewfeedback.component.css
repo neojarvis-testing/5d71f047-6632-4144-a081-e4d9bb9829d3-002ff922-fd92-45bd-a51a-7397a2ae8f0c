@@ -1,0 +1,47 @@
+.container {
+  padding: 20px;
+}
+
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.feedback-table th, .feedback-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.feedback-table th {
+  background-color: #f4f4f4;
+}
+
+.no-data {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.delete-btn {
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  text-align: center;
+}

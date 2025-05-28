@@ -1,30 +1,51 @@
-<!-- Navbar -->
-<nav class="navbar">
-  <div class="navbar-brand">Turf Booking</div>
-  <ul class="navbar-links">
-    <li><a routerLink="/register">Register</a></li>
-    <li><a routerLink="/login" class="active">Login</a></li>
-  </ul>
-</nav>
-
-<!-- Login Form -->
 <div class="login-container">
   <h2>Login</h2>
-  <form (ngSubmit)="onLogin()" #loginForm="ngForm">
+
+  <form (ngSubmit)="login()" novalidate>
     <div class="form-group">
-      <label for="email">Email<span>*</span></label>
-      <input type="email" id="email" name="email" [(ngModel)]="loginData.email" required />
+      <label for="email">Email*</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="loginModel.email"
+        name="email"
+        (blur)="emailTouched = true"
+        required
+        autocomplete="username"
+        class="form-control"
+      />
+      <div *ngIf="emailTouched && !emailValid" class="error-message">
+        Please enter a valid email address.
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="password">Password<span>*</span></label>
-      <input type="password" id="password" name="password" [(ngModel)]="loginData.password" required />
+      <label for="password">Password*</label>
+      <input
+        type="password"
+        id="password"
+        [(ngModel)]="loginModel.password"
+        name="password"
+        (blur)="passwordTouched = true"
+        required
+        autocomplete="current-password"
+        class="form-control"
+      />
+      <div *ngIf="passwordTouched && !passwordValid" class="error-message">
+        Password is required.
+      </div>
     </div>
 
-    <button type="submit" [disabled]="!loginForm.valid">Login</button>
-
-    <p class="register-link">
-      Don't have an account? <a routerLink="/register">Register here</a>
+    <p *ngIf="loginError" class="login-error">
+      {{ loginError }}
     </p>
+
+    <button type="submit" [disabled]="!formValid" class="btn btn-primary">
+      Login
+    </button>
   </form>
+
+  <p class="register-link">
+    Don't have an account? <a routerLink="/register">Register here</a>
+  </p>
 </div>

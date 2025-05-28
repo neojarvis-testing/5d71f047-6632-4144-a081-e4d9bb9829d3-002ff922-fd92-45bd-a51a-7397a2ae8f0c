@@ -21,8 +21,4 @@ public class Turf {
     private boolean isActive;
     private String photo;
     private String turfType;
-
-    @ManyToOne
-    @JoinColumn(name="user_Id")
-    private User user;
 }

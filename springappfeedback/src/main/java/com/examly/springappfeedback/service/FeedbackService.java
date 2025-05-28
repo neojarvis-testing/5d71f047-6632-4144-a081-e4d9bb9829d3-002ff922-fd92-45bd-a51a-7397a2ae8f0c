@@ -11,8 +11,8 @@ public interface FeedbackService {
     Feedback updateFeedback(int id, Feedback feedbackDetails);
     void deleteFeedback(int id);
     List<Feedback> getFeedbacksByUserId(int userId);
-    List<Feedback> getFeedbacksByTurfId(Long turfId);
-    List<Feedback> getFeedbacksByUserIdAndTurfId(Long userId, Long turfId);
+    List<Feedback> getFeedbacksByTurfId(int turfId);
+    List<Feedback> getFeedbacksByUserIdAndTurfId(Long userId, int turfId);
     List<Feedback> getFeedbacksByRating(int rating);
 
 }

@@ -9,3 +9,11 @@
     <li><a (click)="logout()">Logout</a></li>
   </ul>
 </nav>
+<!-- Logout Modal -->
+<div class="modal" *ngIf="logoutConfirmation">
+  <div class="modal-content">
+    <p>Are you sure you want to logout?</p>
+    <button (click)="confirmLogout()">Yes, Logout</button>
+    <button (click)="cancelLogout()">Cancel</button>
+  </div>
+</div>

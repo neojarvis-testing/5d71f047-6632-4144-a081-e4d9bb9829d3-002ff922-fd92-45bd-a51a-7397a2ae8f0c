@@ -1,1 +1,39 @@
-<p>adminviewfeedback works!</p>
+<div class="container">
+  <h2>All Feedbacks</h2>
+
+  <div *ngIf="feedbacks.length === 0" class="no-data">No data found</div>
+
+  <table *ngIf="feedbacks.length > 0" class="feedback-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Turf</th>
+        <th>Rating</th>
+        <th>Feedback</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fb of feedbacks">
+        <td>{{ fb.userName }}</td>
+        <td>{{ fb.email }}</td>
+        <td>{{ fb.turfName }}</td>
+        <td>{{ fb.rating }}</td>
+        <td>{{ fb.feedbackText }}</td>
+        <td>{{ fb.date | date:'shortDate' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="logout-btn" (click)="confirmLogout()">Logout</button>
+
+  <!-- Logout Confirmation Modal -->
+  <div *ngIf="showLogoutConfirm" class="modal-overlay">
+    <div class="modal-box">
+      <p>Are you sure you want to logout?</p>
+      <button (click)="logout()">Yes, Logout</button>
+      <button (click)="cancelLogout()">Cancel</button>
+    </div>
+  </div>
+</div>

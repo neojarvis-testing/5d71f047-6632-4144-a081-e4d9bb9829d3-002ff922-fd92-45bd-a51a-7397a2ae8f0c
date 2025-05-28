@@ -1,8 +1,10 @@
 package com.examly.springappfeedback.model;
 
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.User;
+import lombok.Data;
 
+
+@Data
 @Entity
 public class Turf {
     @Id

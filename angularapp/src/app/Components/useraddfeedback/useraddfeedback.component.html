@@ -1,1 +1,30 @@
-<p>useraddfeedback works!</p>
+<div class="feedback-container">
+  <h2>Add Feedback</h2>
+
+  <form (ngSubmit)="onSubmit()" #feedbackForm="ngForm">
+    <div class="form-group">
+      <label for="feedbackText">Your Feedback*</label>
+      <textarea
+        id="feedbackText"
+        name="feedbackText"
+        [(ngModel)]="feedback.feedbackText"
+        required
+        rows="4"
+        placeholder="Enter your feedback here"
+      ></textarea>
+      <div class="error" *ngIf="submitted && !feedback.feedbackText">
+        Feedback is required.
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Success Modal -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <p>Successfully Added!</p>
+      <button (click)="closeModal()">Ok</button>
+    </div>
+  </div>
+</div>
