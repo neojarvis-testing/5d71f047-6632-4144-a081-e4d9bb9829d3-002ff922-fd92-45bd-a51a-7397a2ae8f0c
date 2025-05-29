@@ -1,9 +1,18 @@
-import { Injectable } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+import { AuthService } from './auth.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class BookingService {
+describe('AuthService', () => {
+  let service: AuthService;
 
-  constructor() { }
-}
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule ],
+    });
+    service = TestBed.inject(AuthService);
+  });
+
+  fit('Frontend_should_create_auth_service', () => {
+    expect(service).toBeTruthy();
+  });
+});

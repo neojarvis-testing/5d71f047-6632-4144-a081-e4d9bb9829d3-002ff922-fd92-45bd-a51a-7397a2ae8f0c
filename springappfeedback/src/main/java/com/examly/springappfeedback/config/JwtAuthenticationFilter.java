@@ -1,7 +1,6 @@
 package com.examly.springappfeedback.config;
 
 import java.io.IOException;
-import java.util.List;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

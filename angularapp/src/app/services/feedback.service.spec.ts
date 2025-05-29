@@ -1,9 +1,19 @@
-import { Injectable } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class TurfService {
+import { FeedbackService } from './feedback.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-  constructor() { }
-}
+describe('FeedbackService', () => {
+  let service: FeedbackService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+    });
+    service = TestBed.inject(FeedbackService);
+  });
+
+  fit('Frontend_should_create_feedback_service', () => {
+    expect(service).toBeTruthy();
+  });
+});
